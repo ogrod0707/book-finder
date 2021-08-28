@@ -22,7 +22,7 @@
         </nav>
     </section>
     <section class="welcome-section">
-        <!-- img -->
+        
         <div class="welcome-text">
             <h2>Find a book for yourself </h2>
             <a href="#bookfinder" class="btn-bookfinder">Let's try!&nbsp; <i class="fas fa-book-open book"></i></a> 
@@ -32,9 +32,9 @@
         </section>
 
     <article id="bookfinder">
-
+        
        <h3>What kind of book do you want to read?</h3> 
-        <p>Just choose a genre :)</p>
+        <p class="text-bookfinder">Just choose a genre :)</p>
         
         <form action="index.php" method="POST">
 
@@ -47,7 +47,25 @@
             </select>
             <input type="submit" value="Search">
         </form>
+        <div class="books">
 
+       
+        <div class="proper-book">
+            <p class="book-name">Pani Jeziora</p>
+            <p class="book-author">Andrzej Sapkowski</p>
+            <p class="short-desc">Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum dolor id nisi gravida vehicula. Maecenas quis justo eget leo tempus condimentum. Suspendisse egestas maximus mi</p>
+        </div>
+        <div class="proper-book">
+            <p class="book-name">Pani Jeziora</p>
+            <p class="book-author">Andrzej Sapkowski</p>
+            <p class="short-desc">Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum dolor id nisi gravida vehicula. Maecenas quis justo eget leo tempus condimentum. Suspendisse egestas maximus mi</p>
+        </div>
+        <div class="proper-book">
+            <p class="book-name">Pani Jeziora</p>
+            <p class="book-author">Andrzej Sapkowski</p>
+            <p class="short-desc">Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum dolor id nisi gravida vehicula. Maecenas quis justo eget leo tempus condimentum. Suspendisse egestas maximus mi</p>
+        </div>
+    </div>
     </article>
 
     <section class="feedback">
@@ -58,9 +76,18 @@
 
 
     <footer>
-        About me
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum dolor id nisi gravida vehicula. Maecenas quis justo eget leo tempus condimentum. Suspendisse egestas maximus mi. </p>
-        WSTAWIC IKONY
+        <div class="footer-info">
+        <p class="about-me">About me</p>
+        <p class="footer desc">It is a small project to improve my skills in PHP and MySQL. If you want to see more, you can reach me in my social media. Links below! </p>
+        <div class="socials">
+        <i class="fab fa-github icon"></i>
+        <i class="fab fa-instagram icon"></i>
+        <i class="fab fa-facebook icon"></i>
+        <i class="fas fa-envelope-open-text icon"></i>
+        </div>
+       
+        </div>
+       
 
     </footer>
 

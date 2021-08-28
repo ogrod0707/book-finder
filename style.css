@@ -11,9 +11,10 @@
 }
 body{
     font-family: 'Cabin', sans-serif;
+    
 }
 .menu {
-
+    
     display: flex;
     align-items: center;
     background-color: var(--dark-vi);
@@ -50,7 +51,7 @@ body{
     cursor: pointer;
  }
  nav li:hover{
-     font-weight: 700;
+     
      text-decoration: underline;
      transition: 0.2s;
  
@@ -86,7 +87,7 @@ body{
  }
  .welcome-text h2{
      font-size: 1.6em;
-     margin-bottom: 10px;
+
  }
  .welcome-text p{
      font-size: 1.2em;
@@ -117,9 +118,112 @@ body{
     transition: 0.2s;
 }
 
+article{
+    background-color: rgb(221, 221, 221);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+}
+
+article h3{
+    font-size: 1.8em;
+    margin-top: 3%;
+}
+.text-bookfinder{
+    font-size: 1.2em;
+    color: rgb(44, 42, 42);
+    margin-top: 5;
+}
+
+select{
+    width: 20vw;
+    height: 4vh;
+    text-align: center;
+    margin-top: 10%;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    border: 3px solid var(--light-pink);
+    font-size: 1em;
+    color: var(--dark-vi);
+}
+article input{
+    outline: none;
+    border: 3px solid var(--light-pink);
+    background-color: white;
+    border-radius: 20px;
+    width: 5vw;
+    font-size: 1em;
+    height: 4vh;
+    cursor: pointer;
+    color: var(--dark-vi);
+}
+article input:hover{
+    background-color: var(--light-pink);
+    
+    color: white;
+}
+.books{
+    display: flex;
+    justify-content: space-evenly;
+   
+   width: 90vw;
+    flex-wrap: wrap;
+}
+.proper-book{
+    flex-wrap: wrap;
+    margin: 10% 10px;
+    padding: 10px 5px;
+    text-align: center;
+    width: 18vw;
+    height: 35vh;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.95);
+     -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.95);
+     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.95);
+    border-radius: 5px;
+    background-color: var(--light-pink);
+}
+.proper-book:hover{
+    -webkit-box-shadow: 0px 6px 22px 5px rgba(115,115,115,1);
+    -moz-box-shadow: 0px 6px 22px 5px rgba(115,115,115,1);
+    box-shadow: 0px 6px 22px 5px rgba(115,115,115,1);
+}
+.book-name{
+    font-size: 2em;
+}
+.short-desc{
+    margin-top: 20px;
+}
 
 
+footer{
+    background-color: var(--dark-vi);
+    
+    height: 20vh;
+    color: white;
+}
+.footer-info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
+}
+.about-me{
+    font-size: 1.4em;
+    margin: 15px 0px;
+}
+.icon{
+    padding: 20px 15px;
+    cursor: pointer;
+    font-size: 2em;
+   
+}
+.icon a{
+    background-color: white;
+    color: white;
+}
 
 
 
