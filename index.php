@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Book recommendation</title>
 </head>
@@ -30,13 +30,13 @@
         
         </div>
         </section>
-
+    
     <article id="bookfinder">
         
        <h3>What kind of book do you want to read?</h3> 
         <p class="text-bookfinder">Just choose a genre :)</p>
         
-        <form action="index.php" method="POST">
+        <form action="index.php#bookfinder" method="POST" >
 
             <select name="genre_id" >
                 <option value="" disabled selected>Select one</option>
@@ -45,35 +45,54 @@
 
 
             </select>
-            <input type="submit" value="Search">
+            <input type="submit" value="Search" class="submit_input">
         </form>
         <div class="books">
+    <?php
 
-       
-        <div class="proper-book">
-            <p class="book-name">Pani Jeziora</p>
-            <p class="book-author">Andrzej Sapkowski</p>
-            <p class="short-desc">Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum dolor id nisi gravida vehicula. Maecenas quis justo eget leo tempus condimentum. Suspendisse egestas maximus mi</p>
-        </div>
-        <div class="proper-book">
-            <p class="book-name">Pani Jeziora</p>
-            <p class="book-author">Andrzej Sapkowski</p>
-            <p class="short-desc">Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum dolor id nisi gravida vehicula. Maecenas quis justo eget leo tempus condimentum. Suspendisse egestas maximus mi</p>
-        </div>
-        <div class="proper-book">
-            <p class="book-name">Pani Jeziora</p>
-            <p class="book-author">Andrzej Sapkowski</p>
-            <p class="short-desc">Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum dolor id nisi gravida vehicula. Maecenas quis justo eget leo tempus condimentum. Suspendisse egestas maximus mi</p>
-        </div>
-    </div>
+function printBooks($select_option,$con){
+    
+    $kw = mysqli_query($con,"SELECT * FROM books WHERE genre = '$select_option' ");
+
+    while( $result = mysqli_fetch_assoc($kw)){
+        
+        echo  '<div class="proper-book">';
+        echo '   <p class="book-name">',$result["book_name"],'</p>';
+        echo '   <p class="book-author">', $result["author"],'</p>';
+        echo '   <p class="short-desc">',$result["short_desc"],'</p>';
+        echo '   </div>';
+    }
+}
+
+
+    $con = mysqli_connect("localhost","root","","book_rem") or die("Sth went wrong");
+    
+
+    if(isset($_POST["genre_id"])){
+
+        $select_option = $_POST["genre_id"];
+        switch($select_option){
+            case "fantasy":
+                printBooks($select_option,$con);
+            
+   
+              break;
+            case "thriller":
+                printBooks($select_option,$con);
+                break;
+            default:
+                echo"DEFAULT";
+            break;
+        }
+
+
+    }
+    
+    
+    ?>
+ </div>
+          
     </article>
-
-    <section class="feedback">
-
-        <!-- opinie jakichs ludzi, to na koncu? -->
-
-    </section>
-
 
     <footer>
         <div class="footer-info">
@@ -90,6 +109,12 @@
        
 
     </footer>
+    <!-- <script>
+      function submitButtonClick(event) {
+		event.preventDefault();
+		//other stuff you want to do instead...
+} 
 
+    </script> -->
 </body>
 </html>
