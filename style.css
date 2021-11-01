@@ -120,7 +120,7 @@ body{
 
 article{
     background-color: rgb(221, 221, 221);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -178,7 +178,7 @@ article input:hover{
     padding: 10px 5px;
     text-align: center;
     width: 18vw;
-    height: 35vh;
+    min-height: 35vh;
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.95);
      -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.95);
      box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.95);
@@ -191,10 +191,11 @@ article input:hover{
     box-shadow: 0px 6px 22px 5px rgba(115,115,115,1);
 }
 .book-name{
-    font-size: 2em;
+    font-size: 1.7em;
+    padding-bottom: 10px;
 }
 .short-desc{
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 
@@ -226,6 +227,74 @@ footer{
 }
 
 
+.feedback{
+    height: 45vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rate{
+    width: 40%;
+    height: 80%;
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+  
+}
+.input-form{
+    width: 45%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -10px;
+}
+.input-form input{
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid black;
+    height: 25px;
+    margin-bottom: 6px;
+}
+.biggertext{
+  width: 100%;
+}
+.comments{
+    width: 55%;
+    height: 100%;
+    border:1px solid gold;
+}
+.input-form input{
+    padding: 5px;
+    margin-top: 15px;
+}
+input[type=submit]{
+    width: 30%;
+    display: block;
+    margin: 6px auto;
+}
+.single-com{
+    display: flex;
+
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+    padding: 6px;
+}
+.details{
+    margin-left: 6px;
+}
+.user-name{
+    border-bottom: #c07382 solid 4px;
+ 
+}
+.user-com{
+   padding-top: 7px;
+}
 
 
 
