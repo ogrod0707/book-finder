@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 01 Lis 2021, 07:48
+-- Czas generowania: 05 Lis 2021, 15:47
 -- Wersja serwera: 10.4.21-MariaDB
 -- Wersja PHP: 8.0.12
 
@@ -48,6 +48,32 @@ INSERT INTO `books` (`id`, `book_name`, `author`, `short_desc`, `genre`, `image`
 (5, 'The Hidden Girls', 'Rebecca Whitney', 'Ut accumsan nulla nunc, et hendrerit purus laoreet a. Vivamus et pharetra metus.Ut accumsan nulla nunc, et hendrerit purus laoreet a. Vivamus et pharetra metus.', 'Thriller', 'girls.png'),
 (6, 'Dark Hollows', 'Steve Frech', 'orem ipsum dolor sit amet, consectetur adipiscing elit. Praesent blandit quam id malesuada feugiat. Nunc auctor lorem ligula, a feugiat arcu ullamcorper quis. Phasellus quis erat vehicula neque tempor porttitor id in augue. Sed imperdiet, urna ac tri', 'thriller', 'dark.png');
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `users_com`
+--
+
+CREATE TABLE `users_com` (
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(50) NOT NULL,
+  `user_com` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `users_com`
+--
+
+INSERT INTO `users_com` (`user_id`, `user_name`, `user_com`) VALUES
+(2, 'Krystian', 'Hejka'),
+(3, 'Patryk', 'Holy moly'),
+(4, 'Peter', 'I need to write something more than only 2 words so im typingggg'),
+(5, 'Peter', 'I need to write something more than only 2 words so im typingggg'),
+(6, 'Peter', 'I need to write something more than only 2 words so im typingggg'),
+(7, 'Peter', 'I need to write something more than only 2 words so im typingggg'),
+(8, 'Peter', 'I need to write something more than only 2 words so im typingggg'),
+(11, 'Peter', 'Something...');
+
 --
 -- Indeksy dla zrzutów tabel
 --
@@ -59,6 +85,12 @@ ALTER TABLE `books`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeksy dla tabeli `users_com`
+--
+ALTER TABLE `users_com`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT dla zrzuconych tabel
 --
 
@@ -67,6 +99,12 @@ ALTER TABLE `books`
 --
 ALTER TABLE `books`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT dla tabeli `users_com`
+--
+ALTER TABLE `users_com`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
