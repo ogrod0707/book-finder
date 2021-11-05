@@ -111,21 +111,51 @@
             <div class="input-form">
                 <p class="text-rate">Rate us!</p>
                 <form action="index.php" method="GET">
-                    <input type="text" placeholder="Name"><br>
-                    <input class="biggertext" type="text" placeholder="Write sth"><br>
+                    <input type="text"  name="name" placeholder="Name"><br>
+                    <input class="biggertext" type="text" name="com" placeholder="Write sth"><br>
                     <input type="submit" value="Send">
                 </form>
+<?php
+
+if(isset($_GET['name'] ) AND isset( $_GET['com']) )
+{
+    $name = $_GET['name'];
+    $com = $_GET['com'];
+    $kw_comment = mysqli_query($con, "INSERT INTO users_com VALUES ('', '$name', '$com')");
+
+}
+?>
             </div>
             <div class="comments">
-                <div class="single-com">
+<?php
+
+    $kw_show_com = mysqli_query($con, "SELECT DISTINCT user_com, user_name FROM users_com ");
+    while($result2 = mysqli_fetch_assoc($kw_show_com)){
+
+        echo ' <div class="single-com">';
+        echo ' <i class="fas fa-user-alt fa-3x"></i> ';
+       echo ' <div class="details"> ';
+      echo '<span class="user-name">', $result2['user_name'], '</span><br>';
+          echo'   <p class="user-com">',$result2['user_com'], '</p>';
+      echo ' </div>';
+
+   echo ' </div>';
+
+
+
+    }
+
+
+
+?>
+                <!-- <div class="single-com">
                     <i class="fas fa-user-alt fa-3x"></i>
                     <div class="details">
                         <span class="user-name">Name Of User 28.10.2021</span><br>
-                        <p class="user-com"> Your website is great! Your website is great! Your website is great! Your
-                            website is great! Your website is great! </p>
+                        <p class="user-com"> Your website is great! Your website is great! Your website is great!  </p>
                     </div>
 
-                </div>
+                </div> -->
             </div>
         </div>
 
