@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Book recommendation</title>
@@ -21,6 +21,7 @@
             <ul>
                 <li><a href="#home"> Home page </a></li>
                 <li> <a href="#bookfinder"> Book finder </a></li>
+                <li> <a href="#creator"> Creator</a></li>
                 <li> <a href="#feedback">Feedback </a></li>
                 <li> <a href="#contact"> Contact me </a></li>
             </ul>
@@ -105,31 +106,46 @@
     </article>
 
 
-    <section class="feedback">
+     <section class="create-book">
+
+
+     
+
+
+     </section>
+
+
+
+
+
+
+    <section class="feedback" id="commentSection">
 
         <div class="rate">
             <div class="input-form">
                 <p class="text-rate">Rate us!</p>
-                <form action="index.php" method="GET">
-                    <input type="text"  name="name" placeholder="Name"><br>
-                    <input class="biggertext" type="text" name="com" placeholder="Write sth"><br>
+                <form action="index.php#commentSection" method="POST">
+                    <label for="name">Name</label><br>
+                    <input type="text"  autocomplete="OFF" name="name"><br>
+                    <label for="comment">Write something</label><br>
+                    <textarea rows="4" name="comment" style=" resize: none;"></textarea>
                     <input type="submit" value="Send">
                 </form>
 <?php
 
-if(isset($_GET['name'] ) AND isset( $_GET['com']) )
+if(isset($_POST['name'] ) AND isset( $_POST['com']) )
 {
-    $name = $_GET['name'];
-    $com = $_GET['com'];
+    $name = $_POST['name'];
+    $com = $_POST['com'];
     $kw_comment = mysqli_query($con, "INSERT INTO users_com VALUES ('', '$name', '$com')");
-
+    header('Location: index.php#commentSection');
 }
 ?>
             </div>
             <div class="comments">
 <?php
 
-    $kw_show_com = mysqli_query($con, "SELECT DISTINCT user_com, user_name FROM users_com ");
+    $kw_show_com = mysqli_query($con, "SELECT DISTINCT user_com, user_name FROM users_com order by user_id DESC ");
     while($result2 = mysqli_fetch_assoc($kw_show_com)){
 
         echo ' <div class="single-com">';
