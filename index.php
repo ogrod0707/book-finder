@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Book recommendation</title>
@@ -106,13 +106,30 @@
     </article>
 
 
-     <section class="create-book">
+    <section class="create-book">
+
+        <div class="creation-box">
+
+            <div class="creation-form">
+                <div class="creation-headers">
+                    <h3>Do u wanna add your favourite book?</h3>
+                    <span>Do it now!</span>
+                </div>
+
+                <div class="creation-formdata">
+                <form action="index.php" method="POST">
+                    <input type="text" placeholder="Book name" name="book-name"><br>
+                    <input type="text" placeholder="Author" name="author"><br>
+                    <textarea name="short-desc" placeholder="Short description" id="" rows="5"
+                        style="resize: none;"></textarea><br>
 
 
-     
-
-
-     </section>
+                </form>
+                </div>
+             
+            </div>
+        </div>
+    </section>
 
 
 
@@ -126,12 +143,12 @@
                 <p class="text-rate">Rate us!</p>
                 <form action="index.php#commentSection" method="POST">
                     <label for="name">Name</label><br>
-                    <input type="text"  autocomplete="OFF" name="name"><br>
+                    <input type="text" autocomplete="OFF" name="name"><br>
                     <label for="comment">Write something</label><br>
                     <textarea rows="4" name="comment" style=" resize: none;"></textarea>
                     <input type="submit" value="Send">
                 </form>
-<?php
+                <?php
 
 if(isset($_POST['name'] ) AND isset( $_POST['com']) )
 {
@@ -143,9 +160,9 @@ if(isset($_POST['name'] ) AND isset( $_POST['com']) )
 ?>
             </div>
             <div class="comments">
-<?php
+                <?php
 
-    $kw_show_com = mysqli_query($con, "SELECT DISTINCT user_com, user_name FROM users_com order by user_id DESC ");
+    $kw_show_com = mysqli_query($con, "SELECT DISTINCT user_com, user_name FROM users_com order by user_id DESC LIMIT 7");
     while($result2 = mysqli_fetch_assoc($kw_show_com)){
 
         echo ' <div class="single-com">';

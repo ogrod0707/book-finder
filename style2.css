@@ -136,7 +136,7 @@ nav li:hover {
 
 article {
     background-color: rgb(236, 236, 236);
-    min-height: 100vh;
+    min-height: 50vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -188,17 +188,21 @@ article input:hover {
 .books {
     display: flex;
     justify-content: space-evenly;
-    width: 90vw;
+    min-width: 20vw;
+    margin: 10px;
+    margin-top: 0px;
     flex-wrap: wrap;
+
 }
 
 .proper-book {
     flex-wrap: wrap;
-    margin: 10% 10px;
+    margin: 0 10px;
+    margin-top: 5%;
     padding: 10px 5px;
     text-align: center;
-    width: 18vw;
-    min-height: 20vh;
+    width: 20vw;
+    max-height: 90vh;
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
@@ -252,6 +256,7 @@ footer {
 
 
 .feedback {
+
     height: 45vh;
     background-color: white;
     display: flex;
@@ -262,17 +267,17 @@ footer {
 .rate {
     width: 40%;
     height: 80%;
-    border: 1px solid black;
-    border-radius: 20px;
+    border: 4px solid rgb(87, 87, 87);
+    border-radius: 5px;
     display: flex;
     justify-content: space-around;
-
+    padding: 1px;
 }
 
 .input-form {
     width: 45%;
     height: 100%;
-    padding: 10px;
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -280,35 +285,61 @@ footer {
     margin-top: -10px;
 }
 
+.text-rate {
+    font-size: 1.5rem;
+}
+
 .input-form input {
-    border-radius: 8px;
+    font-size: 1.2em;
     outline: none;
     border: 1px solid black;
     height: 25px;
     margin-bottom: 6px;
 }
 
+.input-form input:focus {
+    border: 1px solid #d34965;
+}
+
 .biggertext {
     width: 100%;
 }
+
 
 .comments {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    max-width: 55%;
-   
+    width: 55%;
+
     height: 100%;
 
 }
 
 .input-form input {
     padding: 5px;
-    margin-top: 15px;
+
 }
 
-input[type=submit] {
+.feedback textarea {
+    resize: none;
+    outline: none;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+.feedback textarea:focus {
+    padding: 1px;
+    border: 1px solid #d34965;
+}
+
+.feedback input[type=submit] {
     width: 30%;
+    height: 17%;
+    font-size: 1.1em;
+    outline: none;
+    background: white;
+    border-radius: 5px;
     display: block;
     margin: 6px auto;
 }
@@ -344,7 +375,89 @@ img {
     border-radius: 5px;
 }
 
-a{
+a {
     color: white;
     text-decoration: none;
+}
+
+.comments::-webkit-scrollbar {
+    width: 1em;
+
+}
+
+.comments::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.comments::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+html::-webkit-scrollbar {
+    width: 1em;
+}
+
+html::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+.create-book{
+    margin: 15px;
+    border: 1px solid gold;
+    display: flex;
+    justify-content: center;
+}
+
+
+.creation-box{
+    height: 40vh;
+    width: 35vw;
+    border: 1px solid black;
+    display: flex;
+  
+    justify-content: center;
+}
+.creation-headers
+{
+    height: 20%;
+  
+}
+
+ .creation-form{
+     border: 1px solid green;
+     height: 40vh;
+    width: 25vw;
+ }
+.creation-formdata{
+    height: 80%;
+    width: 25vw;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+   
+}
+
+.creation-formdata input, .creation-formdata textarea, .creation-formdata form
+{
+
+  
+    margin-bottom: 5%;
+    width: 100%;
+}
+.creation-formdata input{
+    line-height: 5px;
+    border: none;
+    border-bottom: 5px solid rgba(0, 0, 0, 1);
+
+    outline: none;
+    
 }
