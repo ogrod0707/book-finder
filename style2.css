@@ -190,6 +190,7 @@ article input:hover {
     justify-content: space-evenly;
     min-width: 20vw;
     margin: 10px;
+    padding: 20px;
     margin-top: 0px;
     flex-wrap: wrap;
 
@@ -258,7 +259,7 @@ footer {
 .feedback {
 
     height: 45vh;
-    background-color: white;
+    background-color: rgb(236, 236, 236);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -267,11 +268,12 @@ footer {
 .rate {
     width: 40%;
     height: 80%;
-    border: 4px solid rgb(87, 87, 87);
+    background-color:white;
     border-radius: 5px;
     display: flex;
     justify-content: space-around;
     padding: 1px;
+    box-shadow: 12px 11px 0px 0px rgba(226, 144, 151, 1);
 }
 
 .input-form {
@@ -301,6 +303,7 @@ footer {
     border: 1px solid #d34965;
 }
 
+
 .biggertext {
     width: 100%;
 }
@@ -326,11 +329,14 @@ footer {
     outline: none;
     width: 100%;
     font-size: 1.2em;
+    border: 1px solid black;
+    transition: 0.1s;
 }
 
 .feedback textarea:focus {
     padding: 1px;
-    border: 1px solid #d34965;
+    
+    border-color: #d34965;
 }
 
 .feedback input[type=submit] {
@@ -342,6 +348,12 @@ footer {
     border-radius: 5px;
     display: block;
     margin: 6px auto;
+    transition: 0.2s;
+}
+.feedback input[type=submit]:hover{
+    background-color: var(--light-pink);
+    color: white;
+
 }
 
 .single-com {
@@ -359,7 +371,7 @@ footer {
 }
 
 .user-name {
-    border-bottom: #c07382 solid 4px;
+    border-bottom: var(--light-pink) solid 4px;
 
 }
 
@@ -386,12 +398,12 @@ a {
 }
 
 .comments::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(255, 255, 255);
 }
 
 .comments::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    outline: 1px solid slategrey;
+    background-color: rgb(255, 255, 255);
+    outline: 1px solid rgb(255, 255, 255);
 }
 
 html::-webkit-scrollbar {
@@ -399,65 +411,92 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(255, 255, 255);
 }
 
 html::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    outline: 1px solid slategrey;
+    background-color: var(--dark-vi);
+    outline: 1px solid rgb(8, 8, 8);
 }
 
 .create-book{
-    margin: 15px;
-    border: 1px solid gold;
-    display: flex;
-    justify-content: center;
+    height: 65vh;
+    position: relative;
+    padding: 10px;
 }
+.create-book img{
+    position: absolute;
 
-
-.creation-box{
-    height: 40vh;
-    width: 35vw;
-    border: 1px solid black;
-    display: flex;
-  
-    justify-content: center;
+    top: 25%;
+    left: 5%;
 }
-.creation-headers
-{
-    height: 20%;
-  
-}
-
- .creation-form{
-     border: 1px solid green;
-     height: 40vh;
-    width: 25vw;
- }
-.creation-formdata{
-    height: 80%;
-    width: 25vw;
-    border: 1px solid black;
+.bookcreator{
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+}
+.bookcreator-text h3{
+    font-size: 1.7rem;
+
+}
+.bookcreator-text span{
+    font-size: 1.3rem;
     
+}
+.bookcreator-text{
+    text-align: center;
+    height: 20%;
+    width: 40%;
+    padding: 20px;
+}
+.bookcreator-form{
+    height: 80%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+}
+
+.bookcreator-form input, .bookcreator-form  textarea{
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    outline: none;
+    
+    font-size: 1.3rem;
+   
+}
+.bookcreator-form [type=text], .bookcreator-form textarea
+{
+    border-bottom: 4px solid var(--light-pink);
+}
+
+::placeholder{
+    font-size: 1.3rem;
+    font-family: Cabin;
+}
+.bookcreator-form [type=submit]{
+    border-radius: 20px;
+    background-color: white;
+    border: 3px solid var(--light-pink);
+    transition: 0.3s;
+    font-size: 1.5rem;
+    color: rgb(61, 61, 61);
+}
+.bookcreator-form [type=submit]:hover{
+    background-color: var(--light-pink); 
+    color: white;
+}
+.bookcreator-form [type=submit]:active{
+    background-color: rgb(153, 79, 92); 
    
 }
 
-.creation-formdata input, .creation-formdata textarea, .creation-formdata form
-{
 
-  
-    margin-bottom: 5%;
-    width: 100%;
-}
-.creation-formdata input{
-    line-height: 5px;
-    border: none;
-    border-bottom: 5px solid rgba(0, 0, 0, 1);
 
-    outline: none;
-    
-}
+
+
+

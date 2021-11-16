@@ -106,31 +106,132 @@
     </article>
 
 
+
+
     <section class="create-book">
+        <img src="./images/peoplewithbooks.jpg" alt="">
+        <div class="bookcreator">
 
-        <div class="creation-box">
+            <div class="bookcreator-text">
+                <h3>Do u wanna add your favourite book?</h3>
+                <span>Do it now!</span>
+            </div>    
 
-            <div class="creation-form">
-                <div class="creation-headers">
-                    <h3>Do u wanna add your favourite book?</h3>
-                    <span>Do it now!</span>
-                </div>
-
-                <div class="creation-formdata">
-                <form action="index.php" method="POST">
+               
+            <div class="bookcreator-form">
+                <form enctype="multipart/form-data" action="index.php" method="POST">
                     <input type="text" placeholder="Book name" name="book-name"><br>
                     <input type="text" placeholder="Author" name="author"><br>
-                    <textarea name="short-desc" placeholder="Short description" id="" rows="5"
-                        style="resize: none;"></textarea><br>
-
+                    <textarea name="short-desc" placeholder="Short description" id="" rows="5" style="resize: none;"></textarea><br>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="512000">
+                    <input type="file" name="obrazek">
+                    <input type="submit" name="wyslijmnie" value="Send me">
 
                 </form>
-                </div>
-             
-            </div>
+             </div>
         </div>
-    </section>
+    </section>  
+ 
 
+
+ <!-- W zmiennej $_FILES jest tablica z informacjami o przeslanym pliku -->
+ <?php
+
+// // wyświetlanie typu pliku
+// echo $_FILES['nazwa_pliku']['type'];
+
+// // wyświetlanie rozmiaru
+// echo $_FILES['nazwa_pliku']['size'];
+
+// // wyświetlanie nazwy pliku
+// echo $_FILES['nazwa_pliku']['name'];
+
+// // wyświetlanie nazwy tymczasowej
+// echo $_FILES['nazwa_pliku']['tmp_name'];
+
+// // wyświetlanie ewentualnych błędów
+// echo $_FILES['nazwa_pliku']['error'];
+
+?>
+
+
+
+
+<?php
+    
+    function sprawdz_bledy(){
+        if($_FILES['obrazek']['error'] > 0){
+            echo 'problem: ';
+            switch ($_FILES['obrazek']['error'])
+            {
+                case 1:
+                    {
+                        echo ' Rozmiar pliku jest zbyt duży';
+                        break;
+                        // Rozmiar pliku jest wiekszy niz domyslny maksymalny rozmiar
+                    }
+                case 2:
+                    {
+                        echo 'Rozmiar pliku jest za duzy';
+                        break;
+                        // Rozmiar pliku jest wiekszy niz podany przez nas w max file size
+                    }
+                case 3:
+                    {
+                        echo ' Plik wyslany tylko czesciowo';
+                        break;
+                        //plik nie zostal wyslany w calosci
+                    }
+                case 4:
+                    {
+                        echo ' Nie wyslano zadnego pliku';
+                        break;
+                        //plik nie zostal wyslany
+                    }
+                default:
+                {
+                    echo'Wystapil blad podczas wysylania';
+                    break;
+                    // pozostale bledy
+                }
+            }
+            return false;
+        }
+        return true;
+    }
+
+    function sprawdz_typ()
+    {
+        if($_FILES['obrazek']['type'] != 'image/jpeg')
+            return false;
+        return true;
+    }
+
+    function zapisz_plik()
+    {
+        $lokalizacja ='./images/plik.obrazkowy.jpg';
+        if(is_uploaded_file($_FILES['obrazek']['tmp_name']))
+        {
+            if(!move_uploaded_file($_FILES['obrazek']['tmp_name'], $lokalizacja))
+            {
+                echo 'problem: Nie udalo sie skopiowac pliku do katalogu';
+                    return false;
+            }
+        }
+        else{
+            echo" problem, mozliwy atak, nie zostal wyslany plik";
+            return false;
+        }
+    return true;
+
+    }
+    // sprawdz_bledy();
+    // sprawdz_typ();
+    // zapisz_plik();
+
+?>
+
+       
 
 
 
