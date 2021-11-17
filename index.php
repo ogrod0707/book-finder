@@ -115,28 +115,29 @@
             <div class="bookcreator-text">
                 <h3>Do u wanna add your favourite book?</h3>
                 <span>Do it now!</span>
-            </div>    
+            </div>
 
-               
+
             <div class="bookcreator-form">
                 <form enctype="multipart/form-data" action="index.php" method="POST">
                     <input type="text" placeholder="Book name" name="book-name"><br>
                     <input type="text" placeholder="Author" name="author"><br>
                     <input type="text" placeholder="Genre" name="genre"><br>
-                    <textarea name="short-desc" placeholder="Short description" id="" rows="5" style="resize: none;"></textarea><br>
+                    <textarea name="short-desc" placeholder="Short description" id="" rows="5"
+                        style="resize: none;"></textarea><br>
                     <input type="hidden" name="MAX_FILE_SIZE" value="512000">
                     <input type="file" name="obrazek">
                     <input type="submit" name="wyslijmnie" value="Send me">
 
                 </form>
-             </div>
+            </div>
         </div>
-    </section>  
- 
+    </section>
 
 
- <!-- W zmiennej $_FILES jest tablica z informacjami o przeslanym pliku -->
- <?php
+
+    <!-- W zmiennej $_FILES jest tablica z informacjami o przeslanym pliku -->
+    <?php
 
 
 // // wyświetlanie typu pliku
@@ -159,7 +160,7 @@
 
 
 
-<?php
+    <?php
 
 function form_obrazek()
     {
@@ -260,7 +261,7 @@ function form_obrazek()
 
 ?>
 
-       
+
 
 
 
