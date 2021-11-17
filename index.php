@@ -108,7 +108,7 @@
 
 
 
-    <section class="create-book">
+    <section class="create-book" id="book-creation">
         <img src="./images/peoplewithbooks.jpg" alt="">
         <div class="bookcreator">
 
@@ -122,6 +122,7 @@
                 <form enctype="multipart/form-data" action="index.php" method="POST">
                     <input type="text" placeholder="Book name" name="book-name"><br>
                     <input type="text" placeholder="Author" name="author"><br>
+                    <input type="text" placeholder="Genre" name="genre"><br>
                     <textarea name="short-desc" placeholder="Short description" id="" rows="5" style="resize: none;"></textarea><br>
                     <input type="hidden" name="MAX_FILE_SIZE" value="512000">
                     <input type="file" name="obrazek">
@@ -136,6 +137,7 @@
 
  <!-- W zmiennej $_FILES jest tablica z informacjami o przeslanym pliku -->
  <?php
+
 
 // // wyświetlanie typu pliku
 // echo $_FILES['nazwa_pliku']['type'];
@@ -158,6 +160,19 @@
 
 
 <?php
+
+function form_obrazek()
+    {
+        $con = mysqli_connect("localhost","root","","book-find") or die("Sth went wrong");
+        $book_name = $_POST['book-name'];
+        $author = $_POST['author'];
+        $short_desc = $_POST['short-desc'];
+        $image_name = $_FILES['obrazek']['name'];
+        $genre = $_POST['genre'];
+        $kw_image_with_form = mysqli_query($con, "INSERT INTO books VALUES ('', '$book_name', '$author', '$short_desc', '$genre', '$image_name')" );
+        header('Location: index.php#book-creation');
+    }
+
     
     function sprawdz_bledy(){
         if($_FILES['obrazek']['error'] > 0){
@@ -209,7 +224,8 @@
 
     function zapisz_plik()
     {
-        $lokalizacja ='./images/plik.obrazkowy.jpg';
+        $nazwa_pliku = $_FILES['obrazek']['name'];
+        $lokalizacja ="./images/$nazwa_pliku";
         if(is_uploaded_file($_FILES['obrazek']['tmp_name']))
         {
             if(!move_uploaded_file($_FILES['obrazek']['tmp_name'], $lokalizacja))
@@ -225,9 +241,22 @@
     return true;
 
     }
-    // sprawdz_bledy();
-    // sprawdz_typ();
-    // zapisz_plik();
+    
+    if(isset($_POST['book-name']) AND isset($_POST['author']) AND isset($_POST['genre']) AND isset($_POST['short-desc']) AND isset($_FILES['obrazek']['name']))
+    {
+
+        sprawdz_bledy();
+        sprawdz_typ();
+        zapisz_plik();
+        form_obrazek();
+
+    }
+    
+
+
+
+
+    
 
 ?>
 
@@ -245,14 +274,15 @@
                 <form action="index.php#commentSection" method="POST">
                     <label for="name">Name</label><br>
                     <input type="text" autocomplete="OFF" name="name"><br>
-                    <label for="comment">Write something</label><br>
-                    <textarea rows="4" name="comment" style=" resize: none;"></textarea>
+                    <label for="com">Write something</label><br>
+                    <textarea rows="4" name="com" style=" resize: none;"></textarea>
                     <input type="submit" value="Send">
                 </form>
                 <?php
 
 if(isset($_POST['name'] ) AND isset( $_POST['com']) )
 {
+    
     $name = $_POST['name'];
     $com = $_POST['com'];
     $kw_comment = mysqli_query($con, "INSERT INTO users_com VALUES ('', '$name', '$com')");
@@ -263,7 +293,7 @@ if(isset($_POST['name'] ) AND isset( $_POST['com']) )
             <div class="comments">
                 <?php
 
-    $kw_show_com = mysqli_query($con, "SELECT DISTINCT user_com, user_name FROM users_com order by user_id DESC LIMIT 7");
+    $kw_show_com = mysqli_query($con, "SELECT DISTINCT user_com, user_name FROM users_com order by user_id DESC LIMIT 15");
     while($result2 = mysqli_fetch_assoc($kw_show_com)){
 
         echo ' <div class="single-com">';
