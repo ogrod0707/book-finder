@@ -25,6 +25,10 @@ body {
     color: white;
     height: 10vh;
     border-bottom: 3px solid rgb(26, 25, 25);
+    position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+    z-index: 2;
 }
 
 header {
@@ -40,7 +44,7 @@ header h1::first-letter {
 }
 
 nav {
-
+   
     width: 70%;
     font-size: 1.2em;
 }
@@ -391,6 +395,7 @@ img {
 a {
     color: white;
     text-decoration: none;
+    transition: 0.2s;
 }
 
 .comments::-webkit-scrollbar {
@@ -494,7 +499,7 @@ html::-webkit-scrollbar-thumb {
     border: 3px solid var(--light-pink);
     transition: 0.3s;
     font-size: 1.5rem;
-    color: rgb(61, 61, 61);
+    color:rgb(116, 116, 116);
 }
 
 .bookcreator-form [type=submit]:hover {
@@ -505,4 +510,26 @@ html::-webkit-scrollbar-thumb {
 .bookcreator-form [type=submit]:active {
     background-color: rgb(153, 79, 92);
 
+}
+
+.fileinput{
+    background: white;
+    color:rgb(116, 116, 116);
+    border-radius: 50px;
+    box-shadow: 1px 1px 3px rgb(117, 117, 117);
+ 
+    outline: none;
+}
+
+::-webkit-file-upload-button{
+    color: white;
+    background: var(--light-pink);
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 1px 1px 1px rgb(160, 160, 160);
+    font-size: 0.8em;
+}
+::-webkit-file-upload-button:hover{
+    background: #ce7083;
 }

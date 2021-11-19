@@ -15,14 +15,14 @@
 
     <section class="menu">
         <header>
-            <h1>Book<span class="f-letter">F</span>inder</h1>
+            <h1><a href="#home">Book<span class="f-letter">F</span>inder</a></h1>
         </header>
         <nav>
             <ul>
                 <li><a href="#home"> Home page </a></li>
                 <li> <a href="#bookfinder"> Book finder </a></li>
-                <li> <a href="#creator"> Creator</a></li>
-                <li> <a href="#feedback">Feedback </a></li>
+                <li> <a href="#book-creation"> Creator</a></li>
+                <li> <a href="#commentSection">Feedback </a></li>
                 <li> <a href="#contact"> Contact me </a></li>
             </ul>
         </nav>
@@ -105,9 +105,6 @@
 
     </article>
 
-
-
-
     <section class="create-book" id="book-creation">
         <img src="./images/peoplewithbooks.jpg" alt="">
         <div class="bookcreator">
@@ -126,7 +123,7 @@
                     <textarea name="short-desc" placeholder="Short description" id="" rows="5"
                         style="resize: none;"></textarea><br>
                     <input type="hidden" name="MAX_FILE_SIZE" value="512000">
-                    <input type="file" name="obrazek">
+                    <input type="file" class="fileinput" name="obrazek" value="Choose a file">
                     <input type="submit" name="wyslijmnie" value="Send me">
 
                 </form>
@@ -160,7 +157,7 @@
 
 
 
-    <?php
+    <?php  // Input z obrazkiem, wrzuca do bazy danych i zapisuje zdjecie na lokalnym dysku.
 
 function form_obrazek()
     {
@@ -251,21 +248,9 @@ function form_obrazek()
         zapisz_plik();
         form_obrazek();
 
-    }
-    
-
-
-
-
-    
+    } 
 
 ?>
-
-
-
-
-
-
 
     <section class="feedback" id="commentSection">
 
@@ -279,7 +264,7 @@ function form_obrazek()
                     <textarea rows="4" name="com" style=" resize: none;"></textarea>
                     <input type="submit" value="Send">
                 </form>
-                <?php
+                <?php // Skrypt odpowiedzialny za wrzucanie do bazy Imienia oraz komentarza uzytkownika. Rowniez wwyswietla to na stronie
 
 if(isset($_POST['name'] ) AND isset( $_POST['com']) )
 {
@@ -313,14 +298,6 @@ if(isset($_POST['name'] ) AND isset( $_POST['com']) )
 
 
 ?>
-                <!-- <div class="single-com">
-                    <i class="fas fa-user-alt fa-3x"></i>
-                    <div class="details">
-                        <span class="user-name">Name Of User 28.10.2021</span><br>
-                        <p class="user-com"> Your website is great! Your website is great! Your website is great!  </p>
-                    </div>
-
-                </div> -->
             </div>
         </div>
 
@@ -328,16 +305,19 @@ if(isset($_POST['name'] ) AND isset( $_POST['com']) )
     </section>
 
 
-    <footer id="feedback">
+    <footer id="contact">
         <div class="footer-info">
             <p class="about-me">About me</p>
             <p class="footer desc">It is a small project to improve my skills in PHP and MySQL. If you want to see more,
                 you can reach me in my social media. Links below! </p>
             <div class="socials">
-                <i class="fab fa-github icon"></i>
-                <i class="fab fa-instagram icon"></i>
-                <i class="fab fa-facebook icon"></i>
-                <i class="fas fa-envelope-open-text icon"></i>
+                <a href="https://github.com/ogrod0707" target=”_blank”> <i class="fab fa-github icon"></i> </a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target=”_blank”> <i
+                        class="fab fa-instagram icon"></i> </a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target=”_blank”> <i
+                        class="fab fa-facebook icon"></i> </a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target=”_blank”> <i
+                        class="fas fa-envelope-open-text icon"></i> </a>
             </div>
 
         </div>
